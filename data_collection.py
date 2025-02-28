@@ -2,9 +2,19 @@ import requests
 import mysql.connector
 import json
 from datetime import datetime
+import os
+from dotenv import load_dotenv
 
-# Configuration
-API_KEY = "AIzaSyCSpe59Y_UY0QBtF1CIfEModCgkCkasB4A"  # API Key for Google PageSpeed
+
+load_dotenv()  # Load environment variables from .env
+
+API_KEY = os.getenv("GOOGLE_API_KEY")  
+
+if API_KEY:
+    print("Google API Key Loaded Successfully!")
+else:
+    print("Error: API Key Not Found!")
+
 #target URL
 URLS = [
     "https://www.google.com",
